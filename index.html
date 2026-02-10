@@ -1,1 +1,355 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vCommission | The Global Affiliate Standard</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --vc-lime: #9acd32;
+            --vc-dark: #0f172a;
+            --vc-slate: #64748b;
+            --vc-accent: #22c55e;
+            --vc-border: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* --- FLOATING NAV --- */
+        .navbar {
+            padding: 18px 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 1px solid var(--vc-border);
+        }
+
+        .navbar-brand img { height: 42px; }
+        .nav-link {
+            font-weight: 700;
+            margin-left: 35px;
+            color: var(--vc-dark) !important;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO: SPATIAL DESIGN --- */
+        .hero {
+            padding: 140px 0 100px;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(154, 205, 50, 0.1), transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(34, 197, 94, 0.05), transparent 30%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            color: var(--vc-dark);
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--vc-slate);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .btn-main {
+            background: var(--vc-dark);
+            color: #fff;
+            padding: 20px 50px;
+            border-radius: 100px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+        }
+
+        .btn-main:hover {
+            background: var(--vc-lime);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* --- TRUST TAPE --- */
+        .trust-tape {
+            background: #000;
+            padding: 22px 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            margin: 10px 30px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        .trust-item i { color: var(--vc-lime); margin-right: 10px; font-size: 1rem; }
+
+        /* --- BENTO WHY SECTION --- */
+        .bento-card {
+            background: #f8fafc;
+            padding: 50px 40px;
+            border-radius: 40px;
+            border: 1px solid var(--vc-border);
+            height: 100%;
+            transition: 0.4s;
+        }
+
+        .bento-card:hover {
+            background: #fff;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+            border-color: var(--vc-lime);
+            transform: translateY(-10px);
+        }
+
+        .bento-card i {
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            color: var(--vc-lime);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* --- PERFORMANCE: NUMBERS SECTION --- */
+        .stat-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--vc-border);
+            transition: 0.3s;
+        }
+        
+        .stat-card:hover { border-color: var(--vc-lime); }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, var(--vc-dark), var(--vc-lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: #0b1120;
+            color: #94a3b8;
+            padding: 80px 0 40px;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+        }
+
+        .footer h5 { color: #fff; font-weight: 800; margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+        .footer a { display: block; margin-bottom: 12px; color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        .footer a:hover { color: var(--vc-lime); padding-left: 5px; }
+
+        .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+        .footer-social a {
+            width: 42px; height: 42px; background: rgba(255,255,255,0.05);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; transition: 0.3s;
+        }
+        .footer-social a:hover { background: var(--vc-lime); color: #000; transform: translateY(-5px); }
+
+        .footer-bottom {
+            margin-top: 60px; padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; font-size: 13px;
+        }
+
+        @media (max-width: 992px) {
+            .stat-number { font-size: 3.5rem; }
+            .hero h1 { letter-spacing: -2px; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="https://vcommission.infinityfreeapp.com/">
+            <img src="https://www.vcommission.com/wp-content/uploads/2022/12/cropped-cropped-vc-new-logo.png" alt="vCommission">
+        </a>
+        <div class="d-none d-lg-block">
+            <a class="nav-link d-inline" href="#">Home</a>
+            <a class="nav-link d-inline" href="#">Blog</a>
+            <a class="nav-link d-inline" href="https://www.vcommission.com/about/">About</a>
+            <a class="nav-link d-inline" href="https://www.vcommission.com/contact-us/">Contact</a>
+            <a href="https://network.vcommission.com/" class="btn-main ms-4" style="padding: 10px 30px; font-size: 0.8rem;">Login</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <span class="badge rounded-pill px-3 py-2 mb-4" style="background: rgba(154, 205, 50, 0.1); color: var(--vc-lime); font-weight: 800; letter-spacing: 1px;">GLOBAL NETWORK 2026</span>
+        <h1>Leading <span style="color:var(--vc-lime)">Global</span> <br>Affiliate    
+Marketing Network</h1>
+        <p>Delivering Performance on Web & Mobile to Worldwide Advertisers through a growing network of 100K+ Affiliates, with presence in India, Singapore, UAE, UK & USA.</p>
+        <a href="https://www.vcommission.com/" class="btn-main">Partner With Us</a>
+    </div>
+</section>
+
+<div class="trust-tape">
+    <div class="trust-item"><i class="fas fa-check-circle"></i> 100K+ Publishers</div>
+    <div class="trust-item"><i class="fas fa-globe"></i> Global Advertisers</div>
+    <div class="trust-item"><i class="fas fa-shield-alt"></i> Zero Cutback</div>
+    <div class="trust-item"><i class="fas fa-hand-holding-usd"></i> On-Time Payments</div>
+    <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Support</div>
+</div>
+
+<section class="section py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="font-family:'Montserrat', sans-serif; font-size: 3.5rem; letter-spacing: -2px;">Why vCommission?</h2>
+            <p class="text-muted">Innovation and Knowledge at Scale</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="bento-card">
+                    <i class="fa fa-trophy"></i>
+                    <h4 class="fw-bold">Pioneer</h4>
+                    <p class="text-muted">Oldest & Strongest Indian Network</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bento-card">
+                    <i class="fa fa-earth-americas"></i>
+                    <h4 class="fw-bold">Global Reach</h4>
+                    <p class="text-muted">Connecting India, US, UK, UAE, and Singapore markets</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bento-card">
+                    <i class="fa fa-brain"></i>
+                    <h4 class="fw-bold">Knowledge Driven</h4>
+                    <p class="text-muted">No Nonsense, Serious Affiliate Marketing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background: #fafafa;">
+    <div class="container">
+        <div class="text-center mb-5 pb-4">
+            <span style="color:var(--vc-lime); font-weight:800; letter-spacing:3px; font-size: 0.8rem;">THE PERFORMANCE ENGINE</span>
+            <h2 class="fw-bold mt-2" style="font-size:3.5rem; letter-spacing: -2px;">Numbers Matter</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <h6 class="text-uppercase fw-bold small text-muted">Global Affiliates</h6>
+                    <div class="stat-number">100K+</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <h6 class="text-uppercase fw-bold small text-muted">Monthly Traffic</h6>
+                    <div class="stat-number">80M</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card text-center">
+                    <h6 class="text-uppercase fw-bold small text-muted">Monthly GMV</h6>
+                    <div class="stat-number">$2B</div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <img src="https://www.vcommission.com/wp-content/uploads/2022/12/vc-new-logo2.png" height="55">
+                <p class="mt-4" style="line-height: 1.8; font-size: 0.95rem;">
+                    vCommission is the leading Global Affiliate Marketing Network delivering Performance on Web & Mobile to Worldwide Advertisers through a growing network of 100K+ Affiliates.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/vcommission/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/vcommission"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/vcommission"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vcommission.enroute/?hl=en"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-2 offset-md-1">
+                <h5>Company</h5>
+                <a href="https://www.vcommission.com/about/">About us</a>
+                <a href="#">Insights</a>
+                <a href="https://recruit.vcommission.com/jobs/careers/">Careers</a>
+                <a href="https://www.vcommission.com/contact-us/">Contact Us</a>
+            </div>
+
+            <div class="col-md-2">
+                <h5>Solutions</h5>
+                <a href="https://www.vcommission.com/">Affiliate Marketing</a>
+                <a href="https://www.vcommission.com/">Media Buying</a>
+                <a href="https://www.vcommission.com/">Performance</a>
+                <a href="https://www.vcommission.com/">Lead Gen</a>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Global HQ</h5>
+                <p class="small">Gurugram, India<br>Regional Offices: Singapore · UAE · UK · USA</p>
+                <a href="https://www.vcommission.com/" class="mt-3 d-inline-block fw-bold" style="color:var(--vc-lime); text-decoration: none;">Join the Network ➔</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 vCommission. All rights reserved.</span>
+            <div>
+                <a href="https://www.vcommission.com/privacy-policy/" class="d-inline ms-4">Privacy Policy</a>
+                <a href="mailto:hello@vcommission.com" class="d-inline ms-4">hello@vcommission.com</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
